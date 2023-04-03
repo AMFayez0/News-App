@@ -18,14 +18,19 @@ Future<void> main() async {
   Bloc.observer = MyBlocObserver();
   DioHelper.init();
   await CachHelper.init();
-  bool? isdark = CachHelper.getBolean(key: 'isdark');
+  // bool? isdark = CachHelper.getBolean(key: 'isdark');
 
-  runApp(MyApp(isdark!));
+  runApp(MyApp(
+    // isdark!
+    ));
 }
 
 class MyApp extends StatelessWidget {
-  final bool isdark;
-  MyApp(this.isdark);
+  // final bool isdark;
+  MyApp(
+    
+  // this.isdark
+  );
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -34,7 +39,8 @@ class MyApp extends StatelessWidget {
           create: (context) => NewsCubit()..getBusiness(),
         ),
         BlocProvider(
-          create: (context) => AppCubit()..changeMode(fromShared: isdark),
+          create: (context) => AppCubit()
+          // ..changeMode(fromShared: isdark),
         ),
       ],
       child: BlocConsumer<AppCubit, AppState>(
